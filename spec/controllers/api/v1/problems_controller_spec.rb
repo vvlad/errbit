@@ -15,8 +15,6 @@ describe Api::V1::ProblemsController do
         Fabricate(:problem, :first_notice_at => Date.new(2012, 8, 30))
       end
 
-
-
       it "should return JSON if JSON is requested" do
         get :index, :auth_token => @user.authentication_token, :format => "json"
         expect { JSON.load(response.body) }.not_to raise_error()#JSON::ParserError)

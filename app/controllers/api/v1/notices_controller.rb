@@ -16,9 +16,8 @@ class Api::V1::NoticesController < ApplicationController
     end
 
     respond_to do |format|
-      format.any(:html, :json) { render :json => Yajl.dump(results) } # render JSON if no extension specified on path
-      format.xml  { render :xml  => results }
+      format.any(:json, :html) { render :json => results.as_json(only: fields) }
+      format.xml  { render :xml  => results.to_xml(only: fields) }
     end
   end
-
 end
