@@ -1,1 +1,1 @@
-web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
+web: bundle exec unicorn -l /run/errbit.sock -c ./config/unicorn.rb
